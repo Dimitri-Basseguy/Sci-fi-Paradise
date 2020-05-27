@@ -44,6 +44,11 @@ class User
      */
     private $favBook;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $password;
+
     public function __construct()
     {
         $this->favBook = new ArrayCollection();
@@ -124,6 +129,18 @@ class User
         if ($this->favBook->contains($favBook)) {
             $this->favBook->removeElement($favBook);
         }
+
+        return $this;
+    }
+
+    public function getPassword(): ?string
+    {
+        return $this->password;
+    }
+
+    public function setPassword(string $password): self
+    {
+        $this->password = $password;
 
         return $this;
     }
