@@ -1,13 +1,18 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <div class="container">
     <h1>Connexion</h1>
-    {{ form_start(form) }}
-    {{ form_row(form.firstName, {'label': 'Prénom', 'attr': {'placeholder': 'Votre prénom'}}) }}
-    {{ form_row(form.lastName, {'label': 'Nom', 'attr': {'placeholder': 'Votre nom'}}) }}
-    {{ form_row(form.email, {'attr': {'placeholder': 'Adresse email...'}}) }}
-    {{ form_row(form.password, {'label': 'Mot de passe', 'attr': {'placeholder': 'Mot de passe'}}) }}
-    {{ form_row(form.confirm_password, {'label': 'Confirmation du MDP', 'attr': {'placeholder': 'Répétez votre mot de passe'}}) }}
-    <button type="submit">Inscription !</button>
-    {{ form_end(form) }}
+    <form action="{{ path('security_connexion') }}" method="post">
+        <div class="form-group">
+            <input placeholder="Adresse email ..." required name="_username" type="text" class="form-control">
+        </div>
+        <div class="form-group">
+            <input placeholder="Mot de passe ..." required name="_password" type="password" class="form-control">
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-success">Connexion !</button>
+        </div>
+    </form>
+</div>
 {% endblock %}

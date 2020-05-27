@@ -18,7 +18,7 @@ class BookType extends AbstractType
             ->add('score')
             ->add('style')
             ->add('cover')
-            ->add('users')
+            // ->add('users')
         ;
     }
 

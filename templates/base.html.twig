@@ -2,11 +2,48 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <title>{% block title %}Sci-Fi Paradise{% endblock %}</title>
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset ('assets/bootstrap/css/bootstrap.min.css') }}">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Orbitron">
+            <link rel="stylesheet" href="{{ asset ('assets/fonts/fontawesome-all.min.css') }}">
+            <link rel="stylesheet" href="{{ asset ('assets/fonts/font-awesome.min.css') }}">
+            <link rel="stylesheet" href="{{ asset ('assets/fonts/fontawesome5-overrides.min.css') }}">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+            <link rel="stylesheet" href="{{ asset ('assets/css/Navigation-with-Button.css') }}">
+            <link rel="stylesheet" href="{{ asset ('assets/css/Social-Icons.css') }}">
+            <link rel="stylesheet" href="{{ asset ('assets/css/styles.css') }}">
+        {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        <nav class="navbar navbar-light navbar-expand-md sticky-top navigation-clean-button">
+            <div class="container"><a class="navbar-brand" href="{{ path('home') }}" style="font-family: Orbitron, sans-serif;">Sci-Fi Paradise</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                <div
+                    class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="nav navbar-nav mr-auto">
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="{{ path('book_index') }}"><i class="fas fa-book"></i>Livres</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="{{ path('book_new') }}"><i class="fa fa-plus"></i>&nbsp;Livres</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="#"><i class="fas fa-user"></i>&nbsp;Mon profil</a></li>
+                    </ul>
+                    <span class="navbar-text actions">
+                        {% if not app.user %}
+                            <a class="login" href="{{ path('security_connexion') }}">Connexion</a>
+                        {% else %}        
+                            <a class="login" href="{{ path('security_logout') }}">Déconnexion</a>
+                        {% endif %} 
+                        <a class="btn btn-light action-button" role="button" href="{{ path('security_registration') }}">Inscription</a>
+                    </span>
+                </div>
+            </div>
+        </nav>
+        {% block body %}
+        {% endblock %}
+        
+        {% block javascripts %}
+            <script src="{{ asset ('assets/js/jquery.min.js') }}"></script>
+            <script src="{{ asset ('assets/bootstrap/js/bootstrap.min.js') }}"></script>
+            <script src="{{ asset ('assets/js/bs-init.js') }}"></script>
+        {% endblock %}
     </body>
 </html>
