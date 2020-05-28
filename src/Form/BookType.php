@@ -23,17 +23,20 @@ class BookType extends AbstractType
             ->add('author', TextType::class, [
                 'attr' => ['class' => 'form-control'],
                 'label' => 'Auteur',
+                'label_attr': {'style' => 'margin-bottom: 0px;margin-top: 1rem;'},
             ])
             // ->add('date', DateTimeType::class, [
             //     'attr' => ['class' => 'form-control'],
             //     'label' => 'Date de publication',
-            //     'required' => FALSE,
+            //     'required' => FALSE,tu
             //     'widget' => 'single_text',
             //     'format' => 'MM/dd/yyyy',
             //     'html5' => FALSE,
             //   ])
             ->add('summary', TextareaType::class, [
-                'attr' => ['class' => 'form-control'],
+                'attr' => [
+                    'class' => 'form-control',
+                ],
                 'label' => 'Résumé du livre',
             ])
             // ->add('score')
@@ -41,7 +44,9 @@ class BookType extends AbstractType
                 'attr' => ['class' => 'form-control'],
                 'label' => 'Style du livre',
             ])
-            ->add('cover', CoverType::class)
+            ->add('cover', CoverType::class, [
+                'label' => 'Couverture',
+            ])
             // ->add('users')
         ;
     }
