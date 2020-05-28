@@ -33,8 +33,14 @@ class BookController extends AbstractController
         $book = new Book();
         $form = $this->createForm(BookType::class, $book);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
+            $path = $this->getParameter('kernel.project_dir').'/public/assets/img/cover';
+            $cover = $book->getCover();
+            $file = $cover->getFile();
+            $book->setScore(0);
+            $coverName = md5(uniqid()).'.'.$file->guessExtension();
+            $file->move($path, $coverName);
+            $cover->setName($coverName);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($book);
             $entityManager->flush();
@@ -46,6 +52,28 @@ class BookController extends AbstractController
             'book' => $book,
             'form' => $form->createView(),
         ]);
+    }
+
+    /**
+     * @Route("/{id}/plus", name="plus")
+     */
+    public function votePlus(Book $book)
+    {
+        $book->setScore($book->getScore() + 1);
+        $this->getDoctrine()->getManager()->flush();
+
+        return $this->redirectToRoute('home');
+    }
+
+    /**
+     * @Route("/{id}/moins", name="moins")
+     */
+    public function voteMoins(Book $book)
+    {
+        $book->setScore($book->getScore() - 1);
+        $this->getDoctrine()->getManager()->flush();
+
+        return $this->redirectToRoute('home');
     }
 
     /**

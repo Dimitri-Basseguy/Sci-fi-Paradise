@@ -2,18 +2,22 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Entity\Book;
+use App\Repository\BookRepository;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class MainController extends AbstractController
 {
     /**
      * @Route("/", name="home")
      */
-    public function index()
+    public function index(BookRepository $bookRepository)
     {
         return $this->render('main/index.html.twig', [
-            'controller_name' => 'MainController',
+            'books' => $bookRepository->findAllByScore()
         ]);
     }
+
+    
 }

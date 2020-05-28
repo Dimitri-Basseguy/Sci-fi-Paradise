@@ -19,6 +19,11 @@ class BookRepository extends ServiceEntityRepository
         parent::__construct($registry, Book::class);
     }
 
+    public function findAllByScore()
+    {
+        return $this->findBy(array(), array('score' => 'DESC'), 8);
+    }
+
     // /**
     //  * @return Book[] Returns an array of Book objects
     //  */

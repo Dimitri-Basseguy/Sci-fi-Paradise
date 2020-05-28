@@ -25,12 +25,12 @@ class Book
     private $title;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $date;
 
     /**
-     * @ORM\Column(type="string", length=500, nullable=true)
+     * @ORM\Column(type="string", length=1000, nullable=true)
      */
     private $summary;
 
@@ -53,6 +53,11 @@ class Book
      * @ORM\ManyToMany(targetEntity=User::class, mappedBy="favBook")
      */
     private $users;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $author;
 
     public function __construct()
     {
@@ -168,6 +173,18 @@ class Book
             $this->users->removeElement($user);
             $user->removeFavBook($this);
         }
+
+        return $this;
+    }
+
+    public function getAuthor(): ?string
+    {
+        return $this->author;
+    }
+
+    public function setAuthor(string $author): self
+    {
+        $this->author = $author;
 
         return $this;
     }

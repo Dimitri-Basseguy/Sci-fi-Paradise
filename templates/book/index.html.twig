@@ -3,33 +3,40 @@
 {% block title %}Book index{% endblock %}
 
 {% block body %}
+<div class="container">
     <h1>Book index</h1>
 
     <table class="table">
         <thead>
             <tr>
+                <th>Couverture</th>
                 <th>Id</th>
                 <th>Title</th>
+                <th>Auteur</th>
                 <th>Date</th>
-                <th>Summary</th>
+                {# <th>Summary</th> #}
                 <th>Score</th>
                 <th>Style</th>
-                <th>actions</th>
+                {% if app.user %}<th>actions</th>{% endif %}
             </tr>
         </thead>
         <tbody>
         {% for book in books %}
             <tr>
+                <td><img class="img-fluid" style="background-image: url('{{ asset('assets/img/cover/')~book.cover.name }}');width: 100px;height: 150px;margin-bottom: 1rem;background-size: cover;background-repeat: no-repeat;" /></td>
                 <td>{{ book.id }}</td>
                 <td>{{ book.title }}</td>
+                <td>{{ book.author }}</td>
                 <td>{{ book.date }}</td>
-                <td>{{ book.summary }}</td>
+                {# <td>{{ book.summary }}</td> #}
                 <td>{{ book.score }}</td>
                 <td>{{ book.style }}</td>
+                {% if app.user %}
                 <td>
                     <a href="{{ path('book_show', {'id': book.id}) }}">show</a>
                     <a href="{{ path('book_edit', {'id': book.id}) }}">edit</a>
                 </td>
+                {% endif %}
             </tr>
         {% else %}
             <tr>
@@ -39,5 +46,6 @@
         </tbody>
     </table>
 
-    <a href="{{ path('book_new') }}">Create new</a>
+    {% if app.user %}<a href="{{ path('book_new') }}">Create new</a>{% endif %}
+</div>
 {% endblock %}
