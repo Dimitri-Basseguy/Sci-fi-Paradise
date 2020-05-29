@@ -1,6 +1,10 @@
 
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn btn-primary" type="button" style="margin-top: 1rem;">{{ button_label|default('Ajouter') }}</button>
+    <p style="margin-bottom: 0px;margin-top: 1rem;">{{ form_row(form.title, {'label': 'Titre', 'attr': {'placeholder': 'Titre du livre', 'class':'form-control'}}) }}</p>
+    <p style="margin-bottom: 0px;margin-top: 1rem;">{{ form_row(form.author, {'label': 'Auteur', 'attr': {'placeholder': 'L\'auteur du livre', 'class':'form-control'}}) }}</p>
+    <p style="margin-bottom: 0px;margin-top: 1rem;">{{ form_row(form.summary, {'label': 'Résumé', 'attr': {'placeholder': 'Résumé du livre', 'class':'form-control'}}) }}</p>
+    <p style="margin-bottom: 0px;margin-top: 1rem;">{{ form_row(form.style, {'label': 'Genre', 'attr': {'placeholder': 'Genre du livre', 'class':'form-control'} }) }}</p>
+    <p style="margin-bottom: 0px;margin-top: 1rem;">{{ form_row(form.cover, {'label': 'Couverture'}) }}</p>
+    <button class="btn btn-primary" type="submit" style="margin-top: 1rem;">{{ button_label|default('Ajouter') }}</button>
 {{ form_end(form) }}
 

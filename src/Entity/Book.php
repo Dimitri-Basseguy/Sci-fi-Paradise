@@ -30,7 +30,7 @@ class Book
     private $date;
 
     /**
-     * @ORM\Column(type="string", length=1000, nullable=true)
+     * @ORM\Column(type="text", length=1000, nullable=true)
      */
     private $summary;
 

@@ -16,40 +16,53 @@ class BookType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title', TextType::class, [
-                'attr' => ['class' => 'form-control'],
-                'label' => 'Titre',
-            ])
-            ->add('author', TextType::class, [
-                'attr' => ['class' => 'form-control'],
-                'label' => 'Auteur',
-                'label_attr': {'style' => 'margin-bottom: 0px;margin-top: 1rem;'},
-            ])
-            // ->add('date', DateTimeType::class, [
-            //     'attr' => ['class' => 'form-control'],
-            //     'label' => 'Date de publication',
-            //     'required' => FALSE,tu
-            //     'widget' => 'single_text',
-            //     'format' => 'MM/dd/yyyy',
-            //     'html5' => FALSE,
-            //   ])
-            ->add('summary', TextareaType::class, [
-                'attr' => [
-                    'class' => 'form-control',
-                ],
-                'label' => 'Résumé du livre',
-            ])
+            ->add('title')
+            ->add('author')
+            ->add('summary', TextareaType::class)
             // ->add('score')
-            ->add('style', TextType::class, [
-                'attr' => ['class' => 'form-control'],
-                'label' => 'Style du livre',
-            ])
-            ->add('cover', CoverType::class, [
-                'label' => 'Couverture',
-            ])
+            ->add('style')
+            ->add('cover', CoverType::class)
             // ->add('users')
         ;
     }
+
+    // public function buildForm(FormBuilderInterface $builder, array $options)
+    // {
+    //     $builder
+    //         ->add('title', TextType::class, [
+    //             'attr' => ['class' => 'form-control'],
+    //             'label' => 'Titre',
+    //         ])
+    //         ->add('author', TextType::class, [
+    //             'attr' => ['class' => 'form-control'],
+    //             'label' => 'Auteur',
+    //             // 'label_attr': {'style' => 'margin-bottom: 0px;margin-top: 1rem;'},
+    //         ])
+    //         // ->add('date', DateTimeType::class, [
+    //         //     'attr' => ['class' => 'form-control'],
+    //         //     'label' => 'Date de publication',
+    //         //     'required' => FALSE,tu
+    //         //     'widget' => 'single_text',
+    //         //     'format' => 'MM/dd/yyyy',
+    //         //     'html5' => FALSE,
+    //         //   ])
+    //         ->add('summary', TextareaType::class, [
+    //             'attr' => [
+    //                 'class' => 'form-control',
+    //             ],
+    //             'label' => 'Résumé du livre',
+    //         ])
+    //         // ->add('score')
+    //         ->add('style', TextType::class, [
+    //             'attr' => ['class' => 'form-control'],
+    //             'label' => 'Style du livre',
+    //         ])
+    //         ->add('cover', CoverType::class, [
+    //             'label' => 'Couverture',
+    //         ])
+    //         // ->add('users')
+    //     ;
+    // }
 
     public function configureOptions(OptionsResolver $resolver)
     {

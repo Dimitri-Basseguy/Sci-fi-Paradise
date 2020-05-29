@@ -3,12 +3,14 @@
 {% block title %}New Book{% endblock %}
 
 {% block body %}
-    <div class="container d-xl-flex justify-content-xl-center">
-       
-        <div style="width: 400px;">  
-        {{ include('book/_form.html.twig') }}
+    <div class="container">
+        <h1>Ajouter un livre</h1>
+        <div class="container d-flex flex-column align-items-center justify-content-xl-center">
+            <div class="bg-light border rounded" style="width: 500px;padding: 1rem;background-color: #dfe8ee;">  
+            {{ include('book/_form.html.twig') }}
 
-        <a href="{{ path('book_index') }}">Retour à la liste</a>
+            <a href="{{ path('book_index') }}">Retour à la liste</a>
+            </div>
         </div>
     </div>
 {% endblock %}
