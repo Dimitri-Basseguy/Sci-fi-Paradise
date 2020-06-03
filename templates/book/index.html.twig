@@ -17,6 +17,8 @@
                 {# <th>Summary</th> #}
                 <th>Score</th>
                 <th>Style</th>
+                <th>Vote +</th>
+                <th>Vote -</th>
                 {% if app.user %}<th>actions</th>{% endif %}
             </tr>
         </thead>
@@ -31,6 +33,12 @@
                 {# <td>{{ book.summary }}</td> #}
                 <td>{{ book.score }}</td>
                 <td>{{ book.style }}</td>
+                <td>
+                    <a class="btn btn-primary" role="button" data-bs-hover-animate="tada" data-toggle="tooltip" data-bs-tooltip="" title="Vote +" style="margin-right: 1rem;" href="{{ path('plus', {'id': book.id}) }}"><i class="far fa-arrow-alt-circle-up" style="font-size: 1.5rem;color: #ffffff;"></i></a>
+                </td>
+                <td>
+                    <a class="btn btn-danger" role="button" data-bs-hover-animate="tada" data-toggle="tooltip" data-bs-tooltip="" title="Vote -" style="margin-right: 1rem;" href="{{ path('moins', {'id': book.id}) }}"><i class="far fa-arrow-alt-circle-down" style="font-size: 1.5rem;color: #ffffff;"></i></a>
+                </td>
                 {% if app.user %}
                 <td>
                     <a href="{{ path('book_show', {'id': book.id}) }}">show</a>

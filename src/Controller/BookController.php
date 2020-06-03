@@ -62,7 +62,7 @@ class BookController extends AbstractController
         $book->setScore($book->getScore() + 1);
         $this->getDoctrine()->getManager()->flush();
 
-        return $this->redirectToRoute('home');
+        return $this->redirect($_SERVER['HTTP_REFERER']);
     }
 
     /**
@@ -73,7 +73,7 @@ class BookController extends AbstractController
         $book->setScore($book->getScore() - 1);
         $this->getDoctrine()->getManager()->flush();
 
-        return $this->redirectToRoute('home');
+        return $this->redirect($_SERVER['HTTP_REFERER']);
     }
 
     /**
