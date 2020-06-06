@@ -1,13 +1,23 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Inscription</h1>
-    {{ form_start(form) }}
-    {{ form_row(form.firstName, {'label': 'Prénom', 'attr': {'placeholder': 'Votre prénom'}}) }}
-    {{ form_row(form.lastName, {'label': 'Nom', 'attr': {'placeholder': 'Votre nom'}}) }}
-    {{ form_row(form.email, {'attr': {'placeholder': 'Adresse email...'}}) }}
-    {{ form_row(form.password, {'label': 'Mot de passe', 'attr': {'placeholder': 'Mot de passe'}}) }}
-    {{ form_row(form.confirm_password, {'label': 'Confirmation du MDP', 'attr': {'placeholder': 'Répétez votre mot de passe'}}) }}
-    <button type="submit">Inscription !</button>
-    {{ form_end(form) }}
+    <div class="container">
+    <div class="container d-flex flex-column align-items-center justify-content-xl-center">
+        <div class="border rounded d-flex flex-column flex-sm-column flex-md-column flex-lg-row">
+            <div class="bg-light" style="padding: 1rem;max-width: 500px;min-width: 342px;">
+                {{ form_start(form) }}
+                <p style="margin-bottom: 0px;margin-top: 1rem;">{{ form_row(form.firstName, {'label': 'Prénom', 'attr': {'placeholder': 'Votre prénom', 'class':'form-control'}}) }}</p>
+                <p style="margin-bottom: 0px;margin-top: 1rem;">{{ form_row(form.lastName, {'label': 'Nom', 'attr': {'placeholder': 'Votre nom', 'class':'form-control'}}) }}</p>
+                <p style="margin-bottom: 0px;margin-top: 1rem;">{{ form_row(form.email, {'attr': {'placeholder': 'Adresse email...', 'class':'form-control'}}) }}</p>
+                <p style="margin-bottom: 0px;margin-top: 1rem;">{{ form_row(form.password, {'label': 'Mot de passe', 'attr': {'placeholder': 'Mot de passe', 'class':'form-control'}}) }}</p>
+                <p style="margin-bottom: 0px;margin-top: 1rem;">{{ form_row(form.confirm_password, {'label': 'Confirmation du MDP', 'attr': {'placeholder': 'Répétez votre mot de passe', 'class':'form-control'}}) }}</p>
+                <button class="btn btn-primary" type="submit" style="margin-top: 1rem;">Inscription !</button>
+                {{ form_end(form) }}
+                </div>
+                <div class="text-center d-flex align-items-center" style="background-size: cover;background-repeat: no-repeat;color: #ffffff;font-size: 49px;max-width: 500px;background-image: url(&quot;https://trancentral.tv/wp-content/uploads/2016/06/1-17.gif&quot;);background-position: center;">
+                    <h1 style="color: #f9f1e9;">Incrivez-vous et ajoutez un livre</h1>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

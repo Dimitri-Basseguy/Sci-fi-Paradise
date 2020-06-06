@@ -2,17 +2,25 @@
 
 {% block body %}
     <div class="container">
-    <h1>Connexion</h1>
-    <form action="{{ path('security_connexion') }}" method="post">
-        <div class="form-group">
-            <input placeholder="Adresse email ..." required name="_username" type="text" class="form-control">
+        <div class="container d-flex flex-column align-items-center justify-content-xl-center">
+            <div class="border rounded d-flex flex-column flex-sm-column flex-md-column flex-lg-row">
+                <div class="bg-light" style="padding: 1rem;max-width: 500px;min-width: 342px;">
+                <form action="{{ path('security_connexion') }}" method="post">
+                    <div class="form-group">
+                        <input placeholder="Adresse email ..." required name="_username" type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input placeholder="Mot de passe ..." required name="_password" type="password" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Connexion !</button>
+                    {# <p style="margin-bottom: 0px;margin-top: 1rem;">{{ form_row(form.lastName, {'label': 'Nom', 'attr': {'placeholder': 'Votre nom', 'class':'form-control'}}) }}</p> #}
+                    </div>
+                    <div class="text-center d-flex align-items-center" style="background-size: cover;background-repeat: no-repeat;color: #ffffff;font-size: 49px; min-width: 200px;max-width: 500px;background-image: url('https://i.pinimg.com/originals/dd/58/83/dd588349b5d43e425d6d0f9e6afc7998.gif');background-position: center;">
+                        <h1 style="color: #f9f1e9; font-size: 1.3em; padding: 0.8rem;">Connectez-vous</h1>
+                    </div>
+                </div>
+                </form>
+            </div>
         </div>
-        <div class="form-group">
-            <input placeholder="Mot de passe ..." required name="_password" type="password" class="form-control">
-        </div>
-        <div class="form-group">
-            <button type="submit" class="btn btn-success">Connexion !</button>
-        </div>
-    </form>
-</div>
+    </div>
 {% endblock %}
