@@ -4,8 +4,11 @@
 
 {% block body %}
 <div class="container">
-    <h1>Liste des livres disponibles</h1>
-
+    <div class="d-flex flex-row justify-content-xl-between align-items-bottom" style="margin: 1rem">
+        <h1>Liste des livres disponibles</h1> 
+        {% if app.user %}<a href="{{ path('book_new') }}"><button class="btn btn-primary"style="margin-top: 1rem;">{{ button_label|default('Ajouter un livre') }}</button></a>{% endif %}
+    </div>
+    
     <table class="table">
         <thead>
             <tr>
@@ -25,7 +28,7 @@
         <tbody>
         {% for book in books %}
             <tr>
-                <td><img class="img-fluid" style="background-image: url('{{ asset('assets/img/cover/')~book.cover.name }}');width: 100px;height: 150px;margin-bottom: 1rem;background-size: cover;background-repeat: no-repeat;" /></td>
+                <td><a href="{{ path('book_show', {'id': book.id}) }}"><img class="img-fluid" style="background-image: url('{{ asset('assets/img/cover/')~book.cover.name }}');width: 100px;height: 150px;margin-bottom: 1rem;background-size: cover;background-repeat: no-repeat;" /></a></td>
                 <td>{{ book.id }}</td>
                 <td>{{ book.title }}</td>
                 <td>{{ book.author }}</td>
@@ -53,7 +56,5 @@
         {% endfor %}
         </tbody>
     </table>
-
-    {% if app.user %}<a href="{{ path('book_new') }}">Create new</a>{% endif %}
 </div>
 {% endblock %}

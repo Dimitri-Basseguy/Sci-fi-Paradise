@@ -4,12 +4,14 @@
 
 {% block body %}
     <div class="container">
-        <h1>Ajouter un livre</h1>
-        <div class="container d-flex flex-column align-items-center justify-content-xl-center">
-            <div class="bg-light border rounded" style="width: 500px;padding: 1rem;background-color: #dfe8ee;">  
-            {{ include('book/_form.html.twig') }}
-
-            <a href="{{ path('book_index') }}">Retour à la liste</a>
+    <div class="container d-flex flex-column align-items-center justify-content-xl-center">
+        <div class="border rounded d-flex flex-column flex-sm-column flex-md-column flex-lg-row">
+            <div class="bg-light" style="padding: 1rem;max-width: 500px;min-width: 342px;">
+                 {{ include('book/_form.html.twig') }}    
+                </div>
+                <div class="text-center d-flex align-items-center" style="background-size: cover;background-repeat: no-repeat;font-size: 49px;max-width: 500px;background-image: url(&quot;https://cdn.dribbble.com/users/1336327/screenshots/6444414/____-2.gif&quot;);background-position: center;">
+                    <h1 style="padding: 2rem">Ajoutez un livre</h1>
+                </div>
             </div>
         </div>
     </div>
