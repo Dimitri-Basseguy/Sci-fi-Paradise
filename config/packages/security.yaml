@@ -18,8 +18,8 @@ security:
             provider: in_database
 
             form_login:
-                login_path: security_connexion
-                check_path: security_connexion
+                login_path: security_connect
+                check_path: security_connect
             
             logout:
                 path: security_logout
