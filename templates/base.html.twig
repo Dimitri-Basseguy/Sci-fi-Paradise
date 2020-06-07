@@ -17,7 +17,7 @@
             <link rel="stylesheet" href="{{ asset ('assets/css/solar.css') }}">
         {% endblock %}
     </head>
-    <body>
+    <body style="height: 100vh">
         <nav class="navbar navbar-light navbar-expand-md sticky-top navigation-clean-button">
             <div class="container"><a class="navbar-brand" href="{{ path('home') }}" style="font-family: Orbitron, sans-serif;">Sci-Fi Paradise</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
                 <div
@@ -31,7 +31,7 @@
                     </ul>
                     <span class="navbar-text actions">
                         {% if not app.user %}
-                            <a class="login" href="{{ path('security_connexion') }}">Connexion</a>
+                            <a class="login" href="{{ path('security_connect') }}">Connexion</a>
                         {% else %}        
                             <a class="login" href="{{ path('security_logout') }}">Déconnexion</a>
                         {% endif %} 
@@ -43,8 +43,8 @@
         {# start Body here #}
         {% block body %}{% endblock %}
         {# end Body here #}
-        <div class="footer-clean">
-        <footer style="margin-top: 6rem;">
+        <div class="bg-light footer">
+        <footer>
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-sm-4 col-md-3 item">

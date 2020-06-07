@@ -29,7 +29,7 @@ class SecurityController extends AbstractController
             $entityManager->flush();
             
             
-            return $this->redirectToRoute('security_connexion');
+            return $this->redirectToRoute('security_connect');
         }
 
 
@@ -39,7 +39,7 @@ class SecurityController extends AbstractController
     }
 
     /**
-     * @Route("/connexion", name="security_connexion")
+     * @Route("/connexion", name="security_connect")
      */
     public function login()
     {

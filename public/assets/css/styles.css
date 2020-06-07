@@ -28,7 +28,7 @@ body {
 }
 
 .paralax-home {
-  background-image: url("https://i.pinimg.com/originals/cd/32/aa/cd32aa453661b55037418910a6f68a0a.gif");
+  background-image: url("https://static0.cbrimages.com/wordpress/wp-content/uploads/2020/02/Featured-Image-Sci-Fi-Anime-Wallpaper-Cropped-1.jpg");
   background-position: center;
   background-size: cover;
   height: 400px;
@@ -50,4 +50,8 @@ a:hover {
   position: absolute;
   bottom: 0;
   width: 100%;
+  bottom: 0;
+  padding: 1rem;
+  margin-top: 2rem;
 }
+
