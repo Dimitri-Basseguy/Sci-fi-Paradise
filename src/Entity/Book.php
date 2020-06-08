@@ -6,6 +6,7 @@ use App\Repository\BookRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Serializable;
 
 /**
  * @ORM\Entity(repositoryClass=BookRepository::class)

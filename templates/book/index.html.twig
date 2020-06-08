@@ -6,7 +6,7 @@
 <div class="container">
     <div class="d-flex flex-row justify-content-xl-between align-items-bottom" style="margin: 1rem">
         <h1>Liste des livres disponibles</h1> 
-        {% if app.user %}<a href="{{ path('book_new') }}"><button class="btn btn-primary"style="margin-top: 1rem;">{{ button_label|default('Ajouter un livre') }}</button></a>{% endif %}
+        {% if app.user %}<a href="{{ path('book_new') }}"><button class="btn btn-outline-primary"style="margin-top: 1rem;">{{ button_label|default('Ajouter un livre') }}</button></a>{% endif %}
     </div>
     
     <table class="table">
@@ -44,8 +44,14 @@
                 </td>
                 {% if app.user %}
                 <td>
-                    <a href="{{ path('book_show', {'id': book.id}) }}">show</a>
-                    <a href="{{ path('book_edit', {'id': book.id}) }}">edit</a>
+                    <a href="{{ path('book_show', {'id': book.id}) }}"><button class="btn btn-link btn-sm" data-toggle="tooltip" data-bs-tooltip="" data-bs-hover-animate="tada" type="button" title="Voir +" style="margin-bottom:1rem"><i class="fas fa-eye" style="font-size: 1rem;"></i></button></a>
+                    {% for user in book.users %}
+                        {% if app.user.firstname == user.firstname %}
+                            <a href="{{ path('book_edit', {'id': book.id}) }}">
+                                <button class="btn btn-link btn-sm" data-toggle="tooltip" data-bs-tooltip="" data-bs-hover-animate="tada" type="button" title="Editer"><i class="fas fa-edit" style="font-size: 1rem"></i></button></a>
+                        {% endif %}
+                    {% endfor %}
+                    {# <a href="{{ path('book_edit', {'id': book.id}) }}">edit</a> #}
                 </td>
                 {% endif %}
             </tr>
@@ -58,3 +64,4 @@
     </table>
 </div>
 {% endblock %}
+

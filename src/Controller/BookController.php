@@ -3,12 +3,15 @@
 namespace App\Controller;
 
 use App\Entity\Book;
+use App\Entity\User;
 use App\Form\BookType;
 use App\Repository\BookRepository;
+use Doctrine\ORM\EntityManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @Route("/book")
@@ -41,6 +44,7 @@ class BookController extends AbstractController
             $coverName = md5(uniqid()).'.'.$file->guessExtension();
             $file->move($path, $coverName);
             $cover->setName($coverName);
+            $book->addUser($this->getUser());
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($book);
             $entityManager->flush();
