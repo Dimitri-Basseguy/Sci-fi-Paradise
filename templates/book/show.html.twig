@@ -37,11 +37,13 @@
         </tbody>
     </table>
     <a href="{{ path('book_index') }}"><button class="btn btn-outline-primary"style="margin-top: 1rem;">{{ button_label|default('Retour à la liste') }}</button></a>
+    {% if app.user %}
     {% for user in book.users %}
         {% if app.user.firstname == user.firstname %}
             <a href="{{ path('book_edit', {'id': book.id}) }}"><button class="btn btn-primary"style="margin-top: 1rem;">{{ button_label|default('Editer') }}</button></a>
             {{ include('book/_delete_form.html.twig') }}
         {% endif %}
     {% endfor %}
+    {% endif %}
 </div>
 {% endblock %}
