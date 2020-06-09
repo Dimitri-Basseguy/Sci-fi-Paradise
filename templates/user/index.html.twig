@@ -3,32 +3,39 @@
 {% block title %}User index{% endblock %}
 
 {% block body %}
-    <h1>User index</h1>
-
+    <div class="container">
+    <div class="d-flex flex-row justify-content-xl-between align-items-bottom" style="margin: 1rem">
+        <h1>Liste des membres</h1> 
+    </div>
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
+                {# <th>Id</th> #}
                 <th>FirstName</th>
                 <th>LastName</th>
                 <th>Avatar</th>
-                <th>Email</th>
-                <th>Password</th>
+                {# <th>Email</th> #}
+                {# <th>Password</th> #}
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
         {% for user in users %}
             <tr>
-                <td>{{ user.id }}</td>
+                {# <td>{{ user.id }}</td> #}
                 <td>{{ user.firstName }}</td>
                 <td>{{ user.lastName }}</td>
-                <td>{{ user.avatar }}</td>
-                <td>{{ user.email }}</td>
-                <td>{{ user.password }}</td>
+                <td><img class="img-fluid" style="background-image: url('{{ user.avatar }}');width: 100px;height: 150px;margin-bottom: 1rem;background-size: cover;background-repeat: no-repeat;" /></td>
+                {# <td>{{ user.email }}</td> #}
+                {# <td>{{ user.password }}</td> #}
                 <td>
-                    <a href="{{ path('user_show', {'id': user.id}) }}">show</a>
-                    <a href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
+                    <a href="{{ path('user_show', {'id': user.id}) }}"><button class="btn btn-link btn-sm" data-toggle="tooltip" data-bs-tooltip="" data-bs-hover-animate="tada" type="button" title="Voir +"><i class="fas fa-eye" style="font-size: 1rem;"></i></button></a>
+                    {% if app.user %}
+                        {% if app.user.firstname == user.firstname %}
+                            <a href="{{ path('user_edit', {'id': user.id}) }}">
+                                <button class="btn btn-link btn-sm" data-toggle="tooltip" data-bs-tooltip="" data-bs-hover-animate="tada" type="button" title="Editer"><i class="fas fa-edit" style="font-size: 1rem"></i></button></a>
+                        {% endif %}
+                    {% endif %}
                 </td>
             </tr>
         {% else %}
@@ -38,6 +45,5 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('user_new') }}">Create new</a>
+</div>
 {% endblock %}

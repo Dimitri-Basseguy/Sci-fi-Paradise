@@ -3,14 +3,15 @@
 {% block title %}User{% endblock %}
 
 {% block body %}
-    <h1>User</h1>
+<div class="container">
+    <h1>{{ user.firstName }}</h1>
 
     <table class="table">
         <tbody>
-            <tr>
+            {# <tr>
                 <th>Id</th>
                 <td>{{ user.id }}</td>
-            </tr>
+            </tr> #}
             <tr>
                 <th>FirstName</th>
                 <td>{{ user.firstName }}</td>
@@ -21,22 +22,28 @@
             </tr>
             <tr>
                 <th>Avatar</th>
-                <td>{{ user.avatar }}</td>
+                <td><img class="img-fluid" style="background-image: url('{{ user.avatar }}');width: 300px;height: 350px;margin-bottom: 1rem;background-size: cover;background-repeat: no-repeat;" /></td>
             </tr>
-            <tr>
+            {# <tr>
                 <th>Email</th>
                 <td>{{ user.email }}</td>
             </tr>
             <tr>
                 <th>Password</th>
                 <td>{{ user.password }}</td>
-            </tr>
+            </tr> #}
         </tbody>
     </table>
 
-    <a href="{{ path('user_index') }}">back to list</a>
+    <a href="{{ path('user_index') }}"><button class="btn btn-outline-primary"style="margin-top: 1rem;">{{ button_label|default('Retour à la liste') }}</button></a>
+    {% if app.user %}
+        {% if app.user.firstname == user.firstname %}
+            <a href="{{ path('user_edit', {'id': user.id}) }}">
+                <button class="btn btn-primary"style="margin-top: 1rem;">{{ button_label|default('Editer') }}</button>
+            </a>
+            {{ include('user/_delete_form.html.twig') }}
+        {% endif %}
+    {% endif %} 
 
-    <a href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
-
-    {{ include('user/_delete_form.html.twig') }}
+</div>
 {% endblock %}

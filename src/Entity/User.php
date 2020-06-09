@@ -44,7 +44,7 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=255, unique=true)
      * @Assert\NotBlank(message="l'email est obligatoire")
-     * @Assert\Email(message="l'email n'est pas au bon format ex : xxx@xxx.xxx")
+     * @Assert\Email(message="l'email n'est pas au bon format, ex : xxx@xxx.xxx")
      */
     private $email;
 
@@ -56,12 +56,12 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Le password est obligatoire")
-     * @Assert\EqualTo(propertyPath="confirm_password", message="Votre mdp doit être le même")
+     * @Assert\EqualTo(propertyPath="confirm_password", message="Votre mdp doit être le même", groups={"registration"})
      */
     private $password;
 
     /**
-     * @Assert\EqualTo(propertyPath="password", message="Votre mdp doit être le même")
+     * @Assert\EqualTo(propertyPath="password", message="Votre mdp doit être le même", groups={"registration"})
      */
     public $confirm_password;
 
