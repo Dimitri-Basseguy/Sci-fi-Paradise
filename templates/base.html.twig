@@ -15,6 +15,10 @@
             <link rel="stylesheet" href="{{ asset ('assets/css/Social-Icons.css') }}">
             <link rel="stylesheet" href="{{ asset ('assets/css/styles.css') }}">
             <link rel="stylesheet" href="{{ asset ('assets/css/solar.css') }}">
+            <!-- Load Flashy default CSS -->
+            <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+            <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700' rel='stylesheet'>
+            <link rel="stylesheet" href="{{ asset('bundles/mercuryseriesflashy/css/flashy.css') }}">
         {% endblock %}
     </head>
     <body style="height: 100vh">
@@ -75,9 +79,14 @@
             </div>
         </footer> #}
         {% block javascripts %}
+            <!-- Flashy depends on jQuery -->
+            <script src="//code.jquery.com/jquery.js"></script>
             <script src="{{ asset ('assets/js/jquery.min.js') }}"></script>
             <script src="{{ asset ('assets/bootstrap/js/bootstrap.min.js') }}"></script>
             <script src="{{ asset ('assets/js/bs-init.js') }}"></script>
+            <script src="{{ asset('bundles/mercuryseriesflashy/js/flashy.js') }}"></script>
         {% endblock %}
+        <!-- Include Flashy default partial -->
+        {{ include('@MercurySeriesFlashy/flashy.html.twig') }}
     </body>
 </html>

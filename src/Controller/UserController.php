@@ -3,19 +3,28 @@
 namespace App\Controller;
 
 use App\Entity\User;
-use App\Form\UserEditType;
 use App\Form\UserType;
+use App\Form\UserEditType;
 use App\Repository\UserRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use MercurySeries\FlashyBundle\FlashyNotifier;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * @Route("/user")
  */
 class UserController extends AbstractController
 {
+    /**
+     * Ajout du Bundle Flashy
+     */
+    public function __construct(FlashyNotifier $flashy)
+    {
+        $this->flashy = $flashy;
+    }
+
     /**
      * @Route("/", name="user_index", methods={"GET"})
      */
@@ -39,6 +48,7 @@ class UserController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
+            $this->flashy->success('Membre créé');
 
             return $this->redirectToRoute('user_index');
         }
@@ -69,6 +79,7 @@ class UserController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->flashy->success('Membre modifié');
 
             return $this->redirectToRoute('user_index');
         }
@@ -89,7 +100,7 @@ class UserController extends AbstractController
             $entityManager->remove($user);
             $entityManager->flush();
         }
-
+        $this->flashy->success('Membre supprimé');
         return $this->redirectToRoute('user_index');
     }
 }

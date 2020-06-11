@@ -5,19 +5,28 @@ namespace App\Controller;
 use App\Entity\Book;
 use App\Entity\User;
 use App\Form\BookType;
-use App\Repository\BookRepository;
 use Doctrine\ORM\EntityManager;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Repository\BookRepository;
 use Symfony\Component\HttpFoundation\Request;
+use MercurySeries\FlashyBundle\FlashyNotifier;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * @Route("/book")
  */
 class BookController extends AbstractController
 {
+    /**
+     * Ajout du Bundle Flashy
+     */
+    public function __construct(FlashyNotifier $flashy)
+    {
+        $this->flashy = $flashy;
+    }
+
     /**
      * @Route("/", name="book_index", methods={"GET"})
      */
@@ -49,6 +58,8 @@ class BookController extends AbstractController
             $entityManager->persist($book);
             $entityManager->flush();
 
+            $this->flashy->success('Livre créé');
+
             return $this->redirectToRoute('book_index');
         }
 
@@ -65,6 +76,7 @@ class BookController extends AbstractController
     {
         $book->setScore($book->getScore() + 1);
         $this->getDoctrine()->getManager()->flush();
+        $this->flashy->success('Vote + validé');
 
         return $this->redirect($_SERVER['HTTP_REFERER']);
     }
@@ -76,6 +88,7 @@ class BookController extends AbstractController
     {
         $book->setScore($book->getScore() - 1);
         $this->getDoctrine()->getManager()->flush();
+        $this->flashy->success('Vote - validé');
 
         return $this->redirect($_SERVER['HTTP_REFERER']);
     }
@@ -100,6 +113,7 @@ class BookController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->flashy->success('Livre modifié');
 
             return $this->redirectToRoute('book_index');
         }
@@ -119,8 +133,9 @@ class BookController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($book);
             $entityManager->flush();
-        }
 
+        }
+        $this->flashy->success('Livre supprimé');
         return $this->redirectToRoute('book_index');
     }
 }

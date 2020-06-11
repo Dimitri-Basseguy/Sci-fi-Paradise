@@ -1,0 +1,13 @@
+
+{% for message in app.flashes('mercuryseries_flashy_notification') %}
+    <script id="flashy-template" type="text/template">
+        <div class="flashy flashy--{{ message.type }} jello animated">
+            <i class="material-icons">speaker_notes</i>
+            <p class="flashy__body d-inline"></p>
+        </div>
+    </script>
+
+    <script>
+        flashy("{{ message.message }}", "{{ message.link }}");
+    </script>
+{% endfor %}

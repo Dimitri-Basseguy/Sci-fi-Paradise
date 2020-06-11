@@ -5,12 +5,21 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Form\RegistrationType;
 use Symfony\Component\HttpFoundation\Request;
+use MercurySeries\FlashyBundle\FlashyNotifier;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class SecurityController extends AbstractController
 {
+    /**
+     * Ajout du Bundle Flashy
+     */
+    public function __construct(FlashyNotifier $flashy)
+    {
+        $this->flashy = $flashy;
+    }
+
     /**
      * @Route("/inscription", name="security_registration")
      */
@@ -27,7 +36,7 @@ class SecurityController extends AbstractController
 
             $entityManager->persist($user);
             $entityManager->flush();
-            
+            $this->flashy->success('Inscription validé, vous pouvez vous connecter.');
             
             return $this->redirectToRoute('security_connect');
         }
