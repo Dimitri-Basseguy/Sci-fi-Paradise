@@ -31,7 +31,7 @@
                 <td><a href="{{ path('book_show', {'id': book.id}) }}"><img class="img-fluid" style="background-image: url('{{ asset('assets/img/cover/')~book.cover.name }}');width: 100px;height: 150px;margin-bottom: 1rem;background-size: cover;background-repeat: no-repeat;" /></a></td>
                 <td>{{ book.id }}</td>
                 <td>{{ book.title }}</td>
-                <td>{{ book.author }}</td>
+                <td>{{ book.author.lastname }}</td>
                 <td>{{ book.date }}</td>
                 {# <td>{{ book.summary }}</td> #}
                 <td>{{ book.score }}</td>

@@ -18,7 +18,7 @@
                         <div class="card">
                             <div class="card-body text-center">
                                 <h4 class="card-title">{{ book.title }}</h4>
-                                <h6 class="text-muted card-subtitle mb-2">{{ book.author }}</h6>
+                                <h6 class="text-muted card-subtitle mb-2">{{ book.author.firstname }} {{ book.author.lastname }}</h6>
                                 <img class="img-fluid" style="background-image: url('{{ asset('assets/img/cover/')~book.cover.name }}');width: 150px;height: 200px;margin-bottom: 1rem;background-size: cover;background-repeat: no-repeat;" />
                                 <div class="d-flex justify-content-center">
                                     
