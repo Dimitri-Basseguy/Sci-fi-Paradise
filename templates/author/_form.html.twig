@@ -1,0 +1,7 @@
+{{ form_start(form) }}
+    <p style="margin-bottom: 0px;margin-top: 1rem;">{{ form_row(form.firstname, {'label': 'Prénom', 'attr': {'placeholder': 'Prénom de l\'auteur', 'class':'form-control'}}) }}</p>
+    <p style="margin-bottom: 0px;margin-top: 1rem;">{{ form_row(form.lastname, {'label': 'Nom', 'attr': {'placeholder': 'Nom de l\'auteur', 'class':'form-control'}}) }}</p>
+    <p style="margin-bottom: 0px;margin-top: 1rem;">{{ form_row(form.bio, {'label': 'Biographie', 'attr': {'placeholder': 'Biographie', 'class':'form-control'}}) }}</p>
+    {{ form_widget(form) }}
+    <button class="btn btn-primary" type="submit" style="margin-top: 1rem;">{{ button_label|default('Ajouter') }}</button>
+{{ form_end(form) }}

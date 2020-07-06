@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter un auteur{% endblock %}
+
+{% block body %}
+    <div class="container">
+    <div class="container d-flex flex-column align-items-center justify-content-xl-center">
+        <div class="border rounded d-flex flex-column flex-sm-column flex-md-column flex-lg-row">
+            <div class="bg-light" style="padding: 1rem;max-width: 500px;min-width: 342px;">
+                 {{ include('author/_form.html.twig') }}    
+                </div>
+                <div class="text-center d-flex align-items-center" style="background-size: cover;background-repeat: no-repeat;font-size: 49px;max-width: 500px;background-image: url(&quot;https://media0.giphy.com/media/TlK63EI3QWKREhXnu92/giphy.gif?cid=ecf05e47750f957c58641b6e2a7f31d774ee34663f644bb2&rid=giphy.gif&quot;);background-position: center;">
+                    <h1 style="padding: 2rem">Ajoutez un auteur</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

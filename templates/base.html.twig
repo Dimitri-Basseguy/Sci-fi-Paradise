@@ -30,6 +30,7 @@
                         <li class="nav-item" role="presentation"><a class="nav-link" href="{{ path('book_index') }}"><i class="fas fa-book"></i>Livres</a></li>
                         {% if app.user %}
                         <li class="nav-item" role="presentation"><a class="nav-link" href="{{ path('book_new') }}"><i class="fa fa-plus"></i>&nbsp;Livres</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="{{ path('author_index') }}"><i class="fa fa-pencil"></i>&nbsp;Les auteurs</a></li>
                         {% endif %}
                         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                         <li class="nav-item" role="presentation"><a class="nav-link" href="{{ path('user_index') }}"><i class="fas fa-user"></i>&nbsp;Liste des membres</a></li>

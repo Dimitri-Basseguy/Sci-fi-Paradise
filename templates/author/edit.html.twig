@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editer : {{ author.firstname }} {{ author.lastname }}{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Editer : {{ author.firstname }} {{ author.lastname }}</h1>
+    <div class="container d-flex flex-column align-items-center justify-content-xl-center">
+        <div class="bg-light border rounded" style="width: 500px;padding: 1rem;background-color: #dfe8ee;">
+        {{ include('author/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+        <a href="{{ path('author_index') }}"><button class="btn btn-outline-primary"style="margin-top: 1rem;">{{ button_label|default('Retour à la liste') }}</button></a> 
+
+        {{ include('author/_delete_form.html.twig') }}
+        </div>
+    </div>
+</div>
+{% endblock %}
