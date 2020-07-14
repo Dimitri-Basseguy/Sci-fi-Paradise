@@ -2,7 +2,11 @@
 
 ![screen-shot-todolist](https://github.com/Dimitri-Basseguy/Todo-list-React/blob/master/docs/todo-list-dimitri-basseguy-screen.png)
 
++++ WORK IN PROGESS +++ 
+
 Simple small website for add, and vote for your best Sci-fi book. Made for training in Symfony.
+
+You can try here : http://18.234.128.169/Sci-fi-Paradise/public/
 
 ### Built With
 
@@ -41,7 +45,7 @@ ctrl+k v
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-You can grab this code, and try yourself this todolist :)
+You can grab this code, and try yourself this small website :)
 
 
 <!-- CONTACT -->
@@ -57,20 +61,3 @@ Project Link: [https://github.com/Dimitri-Basseguy/Sci-fi-Paradise](https://gith
 ## Acknowledgements
 
 * Stay safe.
-
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-<!-- [contributors-shield]: https://img.shields.io/github/contributors/NicolasBrondin/basic-readme-template.svg?style=flat-square
-[contributors-url]: https://github.com/NicolasBrondin/basic-readme-template/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/NicolasBrondin/basic-readme-template.svg?style=flat-square
-[forks-url]: https://github.com/NicolasBrondin/basic-readme-template/network/members
-[stars-shield]: https://img.shields.io/github/stars/NicolasBrondin/basic-readme-template.svg?style=flat-square
-[stars-url]: https://github.com/NicolasBrondin/basic-readme-template/stargazers
-[issues-shield]: https://img.shields.io/github/issues/NicolasBrondin/basic-readme-template.svg?style=flat-square
-[issues-url]: https://github.com/NicolasBrondin/basic-readme-template/issues
-[license-shield]: https://img.shields.io/github/license/NicolasBrondin/basic-readme-template.svg?style=flat-square
-[license-url]: https://github.com/NicolasBrondin/basic-readme-template/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/othneildrew
-[product-screenshot]: docs/cover.jpg -->
