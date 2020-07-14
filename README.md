@@ -1,6 +1,7 @@
 ## About The Project
 
-![screen-shot-todolist](https://github.com/Dimitri-Basseguy/Todo-list-React/blob/master/docs/todo-list-dimitri-basseguy-screen.png)
+![screen-shot-sci-fi-paradise1](https://github.com/Dimitri-Basseguy/Sci-fi-Paradise/blob/master/docs/screen-shot-1.png)
+![screen-shot-sci-fi-paradise2](https://github.com/Dimitri-Basseguy/Sci-fi-Paradise/blob/master/docs/screen-shot-2.png)
 
 +++ WORK IN PROGESS +++ 
 
