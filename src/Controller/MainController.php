@@ -18,6 +18,4 @@ class MainController extends AbstractController
             'books' => $bookRepository->findAllByScore()
         ]);
     }
-
-    
 }
